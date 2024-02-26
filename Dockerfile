@@ -52,6 +52,8 @@ EXPOSE 5900 19088
 
 COPY --from=builder /app/apiserverd /home/app/.wine/drive_c/apiserverd
 
+COPY ./apiserver.conf /etc/supervisord.d/apiserver.conf
+
 COPY cmd.sh /cmd.sh
 
 RUN sudo chmod +x /cmd.sh

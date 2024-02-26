@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  apiserver:
+    image: eatmoreapple/wxapiserver
+    container_name: apiserver
+    restart: unless-stopped
+    user: "1000:1000"
+    tty: true
+    ports:
+      - "19089:19089"
+      - "8080:8080"
+    environment:
+      - WINEDEBUG=fixme-all
+      - TZ=Asia/Shanghai
+      - GIN_MODE=release
+      - TEMP_DIR=/home/app/.wine/drive_c/data
+      - MSG_QUEUE_ADDR=redis:6379 # redis 消息队列地址
+    volumes:
+      - ./data/data:/home/app/.wine/drive_c/data
+      - ./data/wechat:/home/app/.wine/drive_c/users/app/Documents/WeChat\ Files
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:19088/api/checkLogin" ]
+      interval: 30s
+      timeout: 20s # 一般是20s旁边完成注入
+      retries: 3
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    volumes:
+      - ./data/redis:/data

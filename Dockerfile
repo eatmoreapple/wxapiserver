@@ -28,7 +28,7 @@ ADD https://github.com/furacas/DllInjector/releases/download/v1.4.0/DllInjector6
 RUN sudo chown app:app DllInjector.exe && sudo chmod a+x DllInjector.exe
 
 # 安装中文支持
-RUN sudo apt install -y winetricks && winetricks cjkfonts
+RUN #sudo apt install -y winetricks && winetricks cjkfonts
 
 # 下载微信
 ADD ${WECHAT_URL} WeChatSetup.exe

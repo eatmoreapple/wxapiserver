@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+mv /home/app/.wine/drive_c/apiserver.conf /etc/supervisor.d/apiserver.conf
+
 exec sudo -E bash -c 'supervisord -c /etc/supervisord.conf -l /var/log/supervisord.log' &
 
 sleep 10

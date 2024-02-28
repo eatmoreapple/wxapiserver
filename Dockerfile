@@ -54,6 +54,4 @@ RUN sudo chmod +x /cmd.sh
 
 COPY --from=builder /app/apiserverd /home/app/.wine/drive_c/apiserverd
 
-RUN nohup /home/app/.wine/drive_c/apiserverd &
-
 CMD ["/cmd.sh"]

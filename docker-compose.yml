@@ -16,6 +16,7 @@ services:
       - GIN_MODE=release
       - TEMP_DIR=/home/app/.wine/drive_c/data
       - MSG_QUEUE_ADDR=redis:6379 # redis 消息队列地址
+      - VIRTUAL_MACHINE_URL=http://localhost:19088
     volumes:
       - ./data/data:/home/app/.wine/drive_c/data
       - ./data/wechat:/home/app/.wine/drive_c/users/app/Documents/WeChat\ Files

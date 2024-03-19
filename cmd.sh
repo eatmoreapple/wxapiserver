@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-
-nohup /home/app/.wine/drive_c/apiserverd > /dev/null 2>&1 &
-
-exec sudo -E bash -c 'supervisord -c /etc/supervisord.conf -l /var/log/supervisord.log' &
-
 sleep 10
 
 if [ -d "/home/app/.wine/drive_c/Program Files/Tencent" ]; then
@@ -18,4 +13,4 @@ sleep 10
 
 wine 'C:\DllInjector.exe' 'C:\wxhelper.dll' WeChat.exe 2>&1
 
-wait
+/home/app/.wine/drive_c/apiserverd

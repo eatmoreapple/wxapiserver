@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   apiserver:
-    image: eatmoreapple/wxapiserver:1f2d9c03c26714e4a69cc3a9a82fe3190c472db4
+    image: eatmoreapple/wxapiserver:024d79fb55eca2079d2806aa4700abaf0193ed33
     container_name: apiserver
     restart: unless-stopped
     user: "1000:1000"

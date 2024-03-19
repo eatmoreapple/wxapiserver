@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mv /home/app/.wine/drive_c/apiserver.conf /etc/supervisord.d/apiserver.conf
+sudo mv /home/app/.wine/drive_c/apiserver.conf /etc/supervisord.d/apiserver.conf
 
 exec sudo -E bash -c 'supervisord -c /etc/supervisord.conf -l /var/log/supervisord.log' &
 

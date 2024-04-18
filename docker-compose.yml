@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   apiserver:
-    image: eatmoreapple/wxapiserver:b324234e0f804c6385c9a98a77720840d083f12a
+    image: eatmoreapple/wxapiserver:latest
     container_name: apiserver
     restart: unless-stopped
     user: "1000:1000"
@@ -17,6 +17,7 @@ services:
       - TEMP_DIR=/home/app/.wine/drive_c/data
       - MSG_QUEUE_ADDR=redis:6379 # redis 消息队列地址
       - VIRTUAL_MACHINE_URL=http://localhost:19088
+      - REDIS_ADDR=redis:6379
     volumes:
       - ./data/data:/home/app/.wine/drive_c/data
       - ./data/wechat:/home/app/.wine/drive_c/users/app/Documents/WeChat\ Files

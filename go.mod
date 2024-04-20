@@ -4,7 +4,7 @@ go 1.22.0
 
 require (
 	github.com/eatmoreapple/env v0.0.0-20230613094802-da1bd2d529d4
-	github.com/eatmoreapple/wxhelper v0.0.2
+	github.com/eatmoreapple/wxhelper v0.0.3
 )
 
 require (

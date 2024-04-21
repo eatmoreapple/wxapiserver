@@ -23,22 +23,26 @@ WORKDIR /home/app/.wine/drive_c
 
 # 加载注入器
 ADD https://github.com/furacas/DllInjector/releases/download/v1.4.0/DllInjector64.exe DllInjector.exe
+RUN sudo chown app:app DllInjector.exe && sudo chmod a+x DllInjector.exe
 
 # 安装中文支持
 RUN #sudo apt install -y winetricks && winetricks cjkfonts
 
 # 下载微信
 ADD ${WECHAT_URL} WeChatSetup.exe
+RUN sudo chown app:app WeChatSetup.exe  && sudo chmod a+x WeChatSetup.exe
 
 # 下载wxhelper.dll
 ADD ${WXHELPER_URL} wxhelper.dll
+
+RUN sudo chown app:app wxhelper.dll
 
 RUN ls -lah
 
 # 安装微信
 COPY install-wechat.sh install-wechat.sh
 
-RUN chmod +x ./install-wechat.sh && ./install-wechat.sh
+RUN sudo chmod a+x install-wechat.sh && ./install-wechat.sh
 
 RUN rm -rf WeChatSetup.exe && rm -rf install-wechat.sh
 

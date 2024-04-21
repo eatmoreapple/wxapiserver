@@ -38,7 +38,7 @@ RUN ls -lah
 # 安装微信
 COPY install-wechat.sh install-wechat.sh
 
-RUN ./install-wechat.sh
+RUN chmod +x ./install-wechat.sh && ./install-wechat.sh
 
 RUN rm -rf WeChatSetup.exe && rm -rf install-wechat.sh
 

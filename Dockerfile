@@ -23,19 +23,16 @@ WORKDIR /home/app/.wine/drive_c
 
 # 加载注入器
 ADD https://github.com/furacas/DllInjector/releases/download/v1.4.0/DllInjector64.exe DllInjector.exe
-RUN chmod a+x DllInjector.exe
 
 # 安装中文支持
 RUN #sudo apt install -y winetricks && winetricks cjkfonts
 
 # 下载微信
 ADD ${WECHAT_URL} WeChatSetup.exe
-RUN chmod a+x WeChatSetup.exe
 
 # 下载wxhelper.dll
 ADD ${WXHELPER_URL} wxhelper.dll
 
-RUN chmod a+x wxhelper.dll
 
 RUN ls -lah
 

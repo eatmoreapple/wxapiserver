@@ -33,13 +33,12 @@ ADD ${WECHAT_URL} WeChatSetup.exe
 # 下载wxhelper.dll
 ADD ${WXHELPER_URL} wxhelper.dll
 
-
 RUN ls -lah
 
 # 安装微信
 COPY install-wechat.sh install-wechat.sh
 
-RUN chmod a+x install-wechat.sh && ./install-wechat.sh
+RUN ./install-wechat.sh
 
 RUN rm -rf WeChatSetup.exe && rm -rf install-wechat.sh
 

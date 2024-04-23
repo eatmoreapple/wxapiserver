@@ -13,7 +13,7 @@ import (
 
 func NewRotateWriter() io.Writer {
 	return &lumberjack.Logger{
-		Filename:   "./logs/logger.log",
+		Filename:   "logger.log",
 		MaxSize:    10, // 单位：MB
 		MaxBackups: 5,
 		MaxAge:     7, // 单位：天

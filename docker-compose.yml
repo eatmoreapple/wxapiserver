@@ -5,7 +5,7 @@ services:
     image: eatmoreapple/wxapiserver:latest
     container_name: apiserver
     restart: unless-stopped
-#    user: "1000:1000"
+    #    user: "1000:1000"
     tty: true
     ports:
       - "19089:19089"
@@ -21,6 +21,7 @@ services:
     volumes:
       - ./data/data:/home/app/.wine/drive_c/data
       - ./data/wechat:/home/app/.wine/drive_c/users/app/Documents/WeChat\ Files
+      - ./data/logs:/home/app/.wine/drive_c/logs
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:19088/api/checkLogin" ]
       interval: 30s

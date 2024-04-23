@@ -13,7 +13,7 @@ import (
 
 func NewRotateWriter() io.Writer {
 	return &lumberjack.Logger{
-		Filename:   "logger.log",
+		Filename:   "./logs/logger.log",
 		MaxSize:    10, // 单位：MB
 		MaxBackups: 5,
 		MaxAge:     7, // 单位：天
@@ -25,7 +25,7 @@ func main() {
 	writer := io.MultiWriter(NewRotateWriter(), os.Stdout)
 	srv := apiserver.Default()
 	srv.OnContext = func(ctx context.Context) context.Context {
-		log.Logger = log.Output(writer).With().Caller().Timestamp().Logger()
+		log.Logger = log.Output(writer)
 		return log.Logger.WithContext(ctx)
 	}
 	stdlog.Fatal(srv.Run(env.Name("RUN_PORT").StringOrElse(":19089")))

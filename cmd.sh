@@ -16,10 +16,12 @@ fi
 
 sleep 10
 
+# wine 'C:\DllInjector.exe' 'C:\Dll2.dll' WeChat.exe 2>&1
+
+wine 'C:\DllInjector.exe' 'C:\Dll2.dll' WeChat.exe > injection_log.txt 2>&1
+
+sleep 10
+
 wine 'C:\DllInjector.exe' 'C:\wxhelper.dll' WeChat.exe 2>&1
-
-wine 'C:\DllInjector.exe' 'C:\Dll2.dll' WeChat.exe 2>&1
-
-
 
 wait

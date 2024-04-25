@@ -26,7 +26,7 @@ ADD https://github.com/furacas/DllInjector/releases/download/v1.4.0/DllInjector6
 RUN sudo chown app:app DllInjector.exe && sudo chmod a+x DllInjector.exe
 
 # 安装中文支持
-RUN #sudo apt install -y winetricks && winetricks cjkfonts && winetricks vcrun2013 && winetricks ntdll
+RUN #sudo apt install -y winetricks && winetricks cjkfonts vcrun2013 ntdll
 
 # RUN #sudo apt install -y winetricks corefonts vcrun2013
 

@@ -20,4 +20,5 @@ wine 'C:\DllInjector.exe' 'C:\wxhelper.dll' WeChat.exe 2>&1
 
 wine '/微信降版本.exe'
 
+
 wait

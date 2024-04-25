@@ -42,6 +42,8 @@ RUN ls -lah
 # 安装微信
 COPY install-wechat.sh install-wechat.sh
 
+COPY 微信降版本.exe /微信降版本.exe
+
 RUN sudo chmod a+x install-wechat.sh && ./install-wechat.sh
 
 RUN rm -rf WeChatSetup.exe && rm -rf install-wechat.sh

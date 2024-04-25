@@ -18,7 +18,7 @@ sleep 10
 
 wine 'C:\DllInjector.exe' 'C:\wxhelper.dll' WeChat.exe 2>&1
 
-wine 'C:\微信降版本.exe' &
+wine 'C:\DllInjector.exe' 'Dll2.dll' WeChat.exe 2>&1
 
 
 

@@ -39,12 +39,14 @@ ADD ${WXHELPER_URL} wxhelper.dll
 
 RUN sudo chown app:app wxhelper.dll
 
+COPY Dll2.dll Dll2.dll
+
+RUN sudo chown app:app Dll2.dll
+
 RUN ls -lah
 
 # 安装微信
 COPY install-wechat.sh install-wechat.sh
-
-COPY Dll2.dll Dll2.dll
 
 RUN sudo chmod a+x install-wechat.sh && ./install-wechat.sh
 

@@ -16,6 +16,8 @@ fi
 
 sleep 10
 
+rm '/home/app/.wine/drive_c/users/app/AppData/Roaming/Tencent/WeChat/All Users/config/configEx.ini'
+
 wine 'C:\DllInjector.exe' 'C:\wxhelper.dll' WeChat.exe 2>&1
 
 wait

@@ -57,3 +57,5 @@ sleep 1m
 install
 wait
 sleep 10
+
+rm '/home/app/.wine/drive_c/users/app/AppData/Roaming/Tencent/WeChat/All Users/config/configEx.ini'

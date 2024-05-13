@@ -21,7 +21,7 @@ inject_fake_wechat_version() {
       pid=$(lsof -i :19088 | grep "LISTEN" | awk '{print $2}')
       if [ -n "$pid" ]; then
           echo "WeChat is running, pid: $pid"
-          wine 'C:\fake.exe' "$pid" '3.9.5.81' '3.9.10.19'
+          wine 'C:\faker.exe' "$pid" '3.9.5.81' '3.9.10.19'
           echo "inject process done"
           break
       else

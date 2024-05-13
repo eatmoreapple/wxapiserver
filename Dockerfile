@@ -48,6 +48,8 @@ RUN rm -rf WeChatSetup.exe && rm -rf install-wechat.sh
 
 EXPOSE 5900 19088
 
+COPY faker.exe faker.exe
+
 COPY cmd.sh /cmd.sh
 
 RUN sudo chmod +x /cmd.sh

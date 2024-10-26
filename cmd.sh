@@ -18,4 +18,6 @@ sleep 10
 
 wine 'C:\DllInjector.exe' 'C:\wxhelper.dll' WeChat.exe 2>&1
 
+wine 'version.exe' 2>&1
+
 wait

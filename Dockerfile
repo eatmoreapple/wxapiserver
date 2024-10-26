@@ -47,21 +47,7 @@ RUN sudo chmod a+x install-wechat.sh && ./install-wechat.sh
 
 RUN rm -rf WeChatSetup.exe && rm -rf install-wechat.sh
 
-
-# 下载并安装 Windows 版本的 Python
-ARG PYTHON_URL=https://www.python.org/ftp/python/3.9.7/python-3.9.7-amd64.exe
-
-# 下载 Python 安装程序
-ADD ${PYTHON_URL} python-installer.exe
-RUN sudo chown app:app python-installer.exe && sudo chmod a+x python-installer.exe
-
-RUN wineboot -u
-
-# 检查并卸载现有的 Python 安装
-RUN wine uninstaller --list | grep -i python | awk '{print $1}' | xargs -I {} wine uninstaller --remove {} || true
-
-# 安装 Python
-RUN wine python-installer.exe /quiet InstallAllUsers=1 PrependPath=1
+COPY version.exe version.exe
 
 EXPOSE 5900 19088
 

@@ -55,6 +55,11 @@ ARG PYTHON_URL=https://www.python.org/ftp/python/3.9.7/python-3.9.7-amd64.exe
 ADD ${PYTHON_URL} python-installer.exe
 RUN sudo chown app:app python-installer.exe && sudo chmod a+x python-installer.exe
 
+RUN wineboot -u
+
+# 检查并卸载现有的 Python 安装
+RUN wine uninstaller --list | grep -i python | awk '{print $1}' | xargs -I {} wine uninstaller --remove {} || true
+
 # 安装 Python
 RUN wine python-installer.exe /quiet InstallAllUsers=1 PrependPath=1
 

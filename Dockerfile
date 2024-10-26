@@ -24,6 +24,8 @@ ARG WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.2.23
 
 WORKDIR /home/app/.wine/drive_c
 
+COPY DllInjector.exe DllInjector.exe
+
 # 加载注入器
 RUN sudo chown app:app DllInjector.exe && sudo chmod a+x DllInjector.exe
 
